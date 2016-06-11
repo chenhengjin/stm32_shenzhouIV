@@ -1,8 +1,8 @@
 .\objects\event_groups.o: ..\src\rtos\freertos9_0_0\Source\event_groups.c
-.\objects\event_groups.o: D:\WorkSoftware\Keil_v5\ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\event_groups.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\event_groups.o: ..\src\rtos\freertos9_0_0\Source\include\FreeRTOS.h
-.\objects\event_groups.o: D:\WorkSoftware\Keil_v5\ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\event_groups.o: D:\WorkSoftware\Keil_v5\ARM\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\event_groups.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\event_groups.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\event_groups.o: ..\src\rtos\freertos9_0_0\FreeRTOSConfig.h
 .\objects\event_groups.o: ..\src\rtos\freertos9_0_0\Source\include\projdefs.h
 .\objects\event_groups.o: ..\src\rtos\freertos9_0_0\Source\include\portable.h

@@ -1,7 +1,10 @@
 --cpu Cortex-M3
 ".\objects\main.o"
+".\objects\nvic.o"
+".\objects\global.o"
 ".\objects\app.o"
 ".\objects\task_led_toggle.o"
+".\objects\usart.o"
 ".\objects\led.o"
 ".\objects\croutine.o"
 ".\objects\event_groups.o"
@@ -36,7 +39,9 @@
 ".\objects\stm32f10x_wwdg.o"
 ".\objects\startup_stm32f10x_cl.o"
 ".\objects\system_stm32f10x.o"
---strict --scatter ".\Objects\haseefour_stm32_freertos.sct"
+".\objects\dma_stm32f10x.o"
+".\objects\gpio_stm32f10x.o"
+--library_type=microlib --strict --scatter ".\Objects\haseefour_stm32_freertos.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\Listings\haseefour_stm32_freertos.map" -o .\Objects\haseefour_stm32_freertos.axf

@@ -1,6 +1,7 @@
 #include "stm32f10x.h"
 #include "led.h"
-
+#include "usart.h"
+#include "nvic.h"
 
 
 #include "task_led_toggle.h"
@@ -12,7 +13,16 @@
   */
 void Hardware_Init(void)
 {
-    LEDs_Init();
+    CFG_My_NVIC();
+    LEDs_Init(); 
+    
+#if USE_USART1
+    USART1_Init(115200);
+#endif
+
+#if USE_USART2
+    USART2_Init(115200);
+#endif
 }
 
 
