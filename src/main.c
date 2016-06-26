@@ -20,14 +20,6 @@ int main(void)
     Tasks_Init();
     Hardware_Init();
     
-    stMy_Usart1.m_SendBuffer[0] = 0x41;
-    stMy_Usart1.m_SendBuffer[1] = 0x42;
-    stMy_Usart1.m_SendBuffer[2] = 0x43;
-    //printf("\r\n start success! \r\n");
-
-    printf("\r\nHELLO \r\n");
-    //USART1_DMA_Send(3);
-    printf("\r\n");
     /* Start the scheduler. */ 
     vTaskStartScheduler();   //Æô¶¯ÄÚºË
 

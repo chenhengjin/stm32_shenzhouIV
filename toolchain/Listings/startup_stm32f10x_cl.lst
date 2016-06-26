@@ -564,13 +564,12 @@ Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\objects\startup_stm32f10x_cl.d -o.\objects\startup_stm32f10x_cl.
 o -IE:\projects\Stm32_Study\stm32_freertos\toolchain\RTE -IE:\projects\Stm32_St
 udy\stm32_freertos\toolchain\RTE\Device\STM32F107VC -ID:\WorkSoftware\Keil_v5\A
-RM\PACK\ARM\CMSIS\4.3.0\CMSIS\Include -ID:\WorkSoftware\Keil_v5\ARM\PACK\Keil\S
-TM32F1xx_DFP\1.1.0\Device\Include -ID:\WorkSoftware\Keil_v5\ARM\PACK\Keil\STM32
-F1xx_DFP\1.1.0\Device\StdPeriph_Driver\inc -ID:\WorkSoftware\Keil_v5\ARM\PACK\K
-eil\STM32F1xx_DFP\1.1.0\RTE_Driver --predefine="__MICROLIB SETA 1" --predefine=
-"__UVISION_VERSION SETA 515" --predefine="_RTE_ SETA 1" --predefine="STM32F10X_
-CL SETA 1" --list=.\listings\startup_stm32f10x_cl.lst RTE\Device\STM32F107VC\st
-artup_stm32f10x_cl.s
+RM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include -ID:\WorkSoftware\Keil_v5\ARM\PACK\
+Keil\STM32F1xx_DFP\2.1.0\Device\Include -ID:\WorkSoftware\Keil_v5\ARM\PACK\Keil
+\STM32F1xx_DFP\2.1.0\Device\StdPeriph_Driver\inc --predefine="__MICROLIB SETA 1
+" --predefine="__UVISION_VERSION SETA 515" --predefine="_RTE_ SETA 1" --predefi
+ne="STM32F10X_CL SETA 1" --list=.\listings\startup_stm32f10x_cl.lst RTE\Device\
+STM32F107VC\startup_stm32f10x_cl.s
 
 
 

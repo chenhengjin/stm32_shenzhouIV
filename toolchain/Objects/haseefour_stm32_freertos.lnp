@@ -1,9 +1,11 @@
 --cpu Cortex-M3
 ".\objects\main.o"
 ".\objects\nvic.o"
+".\objects\stm32f10x_it.o"
 ".\objects\global.o"
 ".\objects\app.o"
 ".\objects\task_led_toggle.o"
+".\objects\task_modbus_process.o"
 ".\objects\usart.o"
 ".\objects\led.o"
 ".\objects\croutine.o"
@@ -14,6 +16,8 @@
 ".\objects\timers.o"
 ".\objects\heap_4.o"
 ".\objects\port.o"
+".\objects\modbus.o"
+".\objects\modbus_slave.o"
 ".\objects\misc.o"
 ".\objects\stm32f10x_adc.o"
 ".\objects\stm32f10x_bkp.o"
@@ -39,8 +43,6 @@
 ".\objects\stm32f10x_wwdg.o"
 ".\objects\startup_stm32f10x_cl.o"
 ".\objects\system_stm32f10x.o"
-".\objects\dma_stm32f10x.o"
-".\objects\gpio_stm32f10x.o"
 --library_type=microlib --strict --scatter ".\Objects\haseefour_stm32_freertos.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

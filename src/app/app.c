@@ -1,10 +1,15 @@
+
+/*****MCU drivers*****/
 #include "stm32f10x.h"
 #include "led.h"
 #include "usart.h"
 #include "nvic.h"
+//#include "mac.h"
+//#include "netconf.h"
 
-
+/*******header of tasks********/
 #include "task_led_toggle.h"
+#include "task_modbus_process.h"
 
 /**
   * @brief  initialise the hardware
@@ -23,6 +28,12 @@ void Hardware_Init(void)
 #if USE_USART2
     USART2_Init(115200);
 #endif
+
+//#if USE_MAC
+	//MAC_Init();
+	//LwIP_Init();
+//#endif
+
 }
 
 
@@ -34,6 +45,7 @@ void Hardware_Init(void)
 void Tasks_Init(void)
 {
     Task_Led_Toggle_Init();
+	Task_Modbus_Process_Init();
 }
 
 

@@ -142,7 +142,7 @@ extern "C" {
 #endif
 
 #ifndef INCLUDE_vTaskPrioritySet
-	#define INCLUDE_vTaskPrioritySet 0
+	#define INCLUDE_vTaskPrioritySet 1
 #endif
 
 #ifndef INCLUDE_uxTaskPriorityGet
@@ -154,7 +154,7 @@ extern "C" {
 #endif
 
 #ifndef INCLUDE_vTaskSuspend
-	#define INCLUDE_vTaskSuspend 0
+	#define INCLUDE_vTaskSuspend 1
 #endif
 
 #ifndef INCLUDE_vTaskDelayUntil
@@ -162,7 +162,7 @@ extern "C" {
 #endif
 
 #ifndef INCLUDE_vTaskDelay
-	#define INCLUDE_vTaskDelay 0
+	#define INCLUDE_vTaskDelay 1
 #endif
 
 #ifndef INCLUDE_xTaskGetIdleTaskHandle
@@ -240,7 +240,7 @@ extern "C" {
 #endif
 
 #ifndef configUSE_MUTEXES
-	#define configUSE_MUTEXES 0
+	#define configUSE_MUTEXES 1
 #endif
 
 #ifndef configUSE_TIMERS

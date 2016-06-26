@@ -17,6 +17,8 @@
 #include <string.h>
 #include "stm32f10x.h"
 #include "usart.h"
+#include "nvic.h"
+
 
 
 
@@ -84,8 +86,7 @@ void USART1_Init(uint32_t baud_rate)
     USART_ITConfig(USART1,USART_IT_RXNE,DISABLE);
     USART_ITConfig(USART1, USART_IT_IDLE, ENABLE);/* 若总线空闲，产生中断 */
     USART_DMACmd(USART1, USART_DMAReq_Rx, ENABLE);//使能USART1接收DMA请求 
-    /*使能串口1的接收中断*/
-	//USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+
     USART_DMACmd(USART1, USART_DMAReq_Tx, ENABLE);//使能USART1发送DMA请求 
 
     /*使能USART1*/
@@ -139,9 +140,12 @@ static void USART1_DMA_Init(void)
     /*DMA初始化*/   
     DMA_Init(USART1_TX_DMA_CHANNEL, &DMA_InitStructure);  
 
+#if USART1_TX_DMA_INT_ENABLE
     Usart1_DMA_TX_NVIC_Init();
     DMA_ITConfig(USART1_TX_DMA_CHANNEL, DMA_IT_TC|DMA_IT_TE, ENABLE);       //使能DMA通道4传输完成中断
-    DMA_Cmd(USART1_TX_DMA_CHANNEL, DISABLE);
+#endif
+
+	DMA_Cmd(USART1_TX_DMA_CHANNEL, DISABLE);
 
 //DMA of usart1 rx
     //DMA1通道5配置  
@@ -168,6 +172,7 @@ static void USART1_DMA_Init(void)
     DMA_InitStructure.DMA_Priority = DMA_Priority_VeryHigh;  
     //设置DMA的2个memory中的变量互相访问  
     DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;  
+	
     DMA_Init(USART1_RX_DMA_CHANNEL,&DMA_InitStructure);    
     //使能通道5  
     DMA_Cmd(USART1_RX_DMA_CHANNEL,ENABLE);
@@ -191,6 +196,7 @@ void USART1_DMA_Send(uint16_t buff_size)
 }
 
 
+#if USART1_TX_DMA_INT_ENABLE
 /**
   * @brief  set the NVIC priority of the DMA transmit complete of the usart1 
   * @param  none
@@ -208,7 +214,7 @@ static void Usart1_DMA_TX_NVIC_Init(void)
     NVIC_Init(&NVIC_InitStructure);          // Enable the DMA Interrupt 
 
 }
-
+#endif
 
 /**
   * @brief  enable the clocks of the USART1 peripheral
@@ -370,8 +376,7 @@ void USART2_Init(uint32_t baud_rate)
     USART_ITConfig(USART2,USART_IT_RXNE,DISABLE);
     USART_ITConfig(USART2, USART_IT_IDLE, ENABLE);/* 若总线空闲，产生中断 */
     USART_DMACmd(USART2, USART_DMAReq_Rx, ENABLE);//使能USART1接收DMA请求 
-    /*使能串口1的接收中断*/
-	//USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+
     USART_DMACmd(USART2, USART_DMAReq_Tx, ENABLE);//使能USART1发送DMA请求 
 
     /*使能USART1*/
@@ -391,7 +396,7 @@ static void USART2_DMA_Init(void)
 {
     DMA_InitTypeDef DMA_InitStructure;
     
-//DMA of usart1 tx
+//DMA of usart2 tx
     /*复位DMA所有通道相关的寄存器为它们的默认值，这很有必要*/
     DMA_DeInit(USART2_TX_DMA_CHANNEL);  
        
@@ -426,7 +431,7 @@ static void USART2_DMA_Init(void)
     DMA_ITConfig(USART2_TX_DMA_CHANNEL, DMA_IT_TC|DMA_IT_TE, ENABLE);       //使能DMA通道7传输完成中断
     DMA_Cmd(USART2_TX_DMA_CHANNEL, DISABLE);
 
-//DMA of usart1 rx
+//DMA of usart2 rx
     //DMA1通道5配置  
     DMA_DeInit(USART2_RX_DMA_CHANNEL);  
     //外设地址  
@@ -510,8 +515,6 @@ static void USART2_RCC_Init(void)
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO,ENABLE);
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2,ENABLE);
 }
-
-
 /**
   * @brief  set the pin mode of the USART2
   * @param  none
@@ -612,6 +615,82 @@ int fgetc(FILE *f)
 }
 
 #endif
+
+#if USART2_TX_DMA_INT_ENABLE
+/*****************************************************************************
+ 函 数 名  : DMA1_Channel7_IRQHandler
+ 功能描述  : USART2DMA发送完成中断的处理函数
+ 输入参数  : void
+ 输出参数  : void
+ 返 回 值  : void
+ 修改历史      :
+  1.日    期   : 2015年8月21日
+    作    者   : 陈恒
+    修改内容   : 新生成函数
+*****************************************************************************/
+void DMA1_Channel7_IRQHandler(void)
+{
+    stMy_Usart2.m_IsSendOver = TRUE;
+
+#if 0
+    if(DMA_GetFlagStatus(DMA1_FLAG_TC7)==SET) 
+    {  
+    }
+
+    if(DMA_GetFlagStatus(DMA1_FLAG_TE7)==SET) 
+    {  
+        
+    } 
+#endif
+
+    DMA_ClearITPendingBit(DMA1_FLAG_TE7|DMA1_FLAG_TC7); 
+}
+#endif
+
+/*****************************************************************************
+ 函 数 名  : USART2_IRQHandler
+ 功能描述  : Usart2的串口接收中断服务函数
+ 输入参数  : void
+ 输出参数  : void
+ 返 回 值  : void
+ 修改历史      :
+  1.日    期   : 2016年02月24日
+    作    者   : 陈恒
+    修改内容   : 新生成函数
+
+*****************************************************************************/
+void USART2_IRQHandler(void)
+{
+    uint16_t temp = 0;   
+    //static BaseType_t xHigherPriorityTaskWoken;
+
+#if USART2_RX_INT_ENABLE
+    if(USART_GetITStatus(USART2, USART_IT_IDLE) != RESET)
+	{ 
+        temp = USART2->SR;  
+        temp = USART2->DR; //清USART_IT_IDLE标志  
+        
+        //disbale the rx dma channel
+        DMA_Cmd(DMA1_Channel6,DISABLE);
+
+        //给出信号量
+        //xHigherPriorityTaskWoken = pdFALSE;    //置为pdFALSE
+            
+        // 在中断中give信号量，此函数会将xHigherPriorityTaskWoken置为pdTRUE
+        //xSemaphoreGiveFromISR( Handler_Semaphore_Lcd, &xHigherPriorityTaskWoken );             
+		//if(xHigherPriorityTaskWoken == pdTRUE)
+		//{
+			//portYIELD_FROM_ISR( xHigherPriorityTaskWoken ); //进行上下文的切换，优先运行最高优先级的任务
+		//}
+
+		//设置传输数据长度  
+		DMA_SetCurrDataCounter(DMA1_Channel6,BUFFER_SIZE);  
+    	//打开DMA  
+    	DMA_Cmd(DMA1_Channel6,ENABLE); 
+
+    }
+#endif
+}
 
 
 #endif

@@ -16,7 +16,13 @@
 #include "global.h"
 
 #define USE_USART1 (1)
+#define USART1_TX_DMA_INT_ENABLE (1)
+#define USART1_RX_INT_ENABLE (1)
+
+
 #define USE_USART2 (1)
+#define USART2_TX_DMA_INT_ENABLE (1)
+#define USART2_RX_INT_ENABLE (1)
 
 #define CONSOLE_USART1 1
 #define CONSOLE_USART2 2
@@ -39,10 +45,6 @@ typedef struct
 }SerialPortTypedef;
 
 
-
-
-
-
 #if USE_USART1
 #define USART1_RCC_GPIO RCC_APB2Periph_GPIOA  //USART1的时钟源
 #define USART1_PORT  GPIOA                     //引脚
@@ -55,12 +57,6 @@ typedef struct
 
 #define USART1_TX_DMA_CHANNEL (DMA1_Channel4)
 #define USART1_RX_DMA_CHANNEL (DMA1_Channel5)
-
-#define USART1_IRQPREPRIO 15 //抢占优先级
-#define USART1_IRQSUBPRIO 0x00   //响应优先级
-
-#define USART1_DMA_TX_IRQPREPRIO 0x04
-#define USART1_DMA_TX_IRQSUBPRIO 0x00
 
 
 void USART1_Init(uint32_t baud_rate);
@@ -85,12 +81,6 @@ extern SerialPortTypedef stMy_Usart1;  //串口1结构体
 
 #define USART2_TX_DMA_CHANNEL (DMA1_Channel7)
 #define USART2_RX_DMA_CHANNEL (DMA1_Channel6)
-
-#define USART2_IRQPREPRIO 15 //抢占优先级
-#define USART2_IRQSUBPRIO 0x00   //响应优先级
-
-#define USART2_DMA_TX_IRQPREPRIO 0x04
-#define USART2_DMA_TX_IRQSUBPRIO 0x00
 
 
 void USART2_Init(uint32_t baud_rate);
