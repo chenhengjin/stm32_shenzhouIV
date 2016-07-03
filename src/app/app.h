@@ -3,4 +3,7 @@
 void Hardware_Init(void);
 void Tasks_Init(void);
 
+void flash_test(void);
+
+
 #endif

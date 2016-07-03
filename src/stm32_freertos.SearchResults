@@ -1,7 +1,2 @@
----- MODBUS_FC01_COIL_RD Matches (6 in 3 files) ----
-Modbus_cfg.h (protocol\modbus):#define  MODBUS_FC01_COIL_RD						1	/* read coil status  function code */
-Modbus_slave.c (protocol\modbus):        *p_send_buffer++ = (MODBUS_FC01_COIL_RD+0x80);/* Command feild */
-Modbus_slave.c (protocol\modbus):        *p_send_buffer++ = (MODBUS_FC01_COIL_RD+0x80);/* Command feild */
-Modbus_slave.c (protocol\modbus):        *p_send_buffer++ = (MODBUS_FC01_COIL_RD+0x80);/* Command feild */
-Modbus_slave.c (protocol\modbus):    *p_send_buffer++ = MODBUS_FC01_COIL_RD;/* Command feild */
-Task_modbus_process.c (app):        case MODBUS_FC01_COIL_RD :				/* read coli ∂¡œﬂ»¶*/
+---- SPI_FLASH_SendHalfWord Matches (1 in 1 files) ----
+W25x16.c (drivers\bsp):u16 SPI_FLASH_SendHalfWord(u16 HalfWord)

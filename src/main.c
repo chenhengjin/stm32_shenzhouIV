@@ -19,10 +19,13 @@ int main(void)
 {
     Tasks_Init();
     Hardware_Init();
+
+	flash_test();
     
     /* Start the scheduler. */ 
     vTaskStartScheduler();   //Æô¶¯ÄÚºË
 
+	
     while(1)
     {
         ;

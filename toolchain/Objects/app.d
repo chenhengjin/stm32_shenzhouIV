@@ -1,4 +1,6 @@
 .\objects\app.o: ..\src\app\app.c
+.\objects\app.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\app.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\app.o: D:\WorkSoftware\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include\stm32f10x.h
 .\objects\app.o: D:\WorkSoftware\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include\core_cm3.h
 .\objects\app.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -36,5 +38,7 @@
 .\objects\app.o: ..\src\drivers\mcu\usart.h
 .\objects\app.o: ..\src\utils\global.h
 .\objects\app.o: ..\src\nvic.h
+.\objects\app.o: ..\src\drivers\bsp\w25x16.h
+.\objects\app.o: ..\src\drivers\mcu\spi.h
 .\objects\app.o: ..\src\app\task_led_toggle.h
 .\objects\app.o: ..\src\app\task_modbus_process.h
