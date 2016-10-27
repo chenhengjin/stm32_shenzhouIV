@@ -8,6 +8,7 @@
 ".\objects\task_modbus_process.o"
 ".\objects\usart.o"
 ".\objects\spi.o"
+".\objects\i2c.o"
 ".\objects\led.o"
 ".\objects\w25x16.o"
 ".\objects\croutine.o"

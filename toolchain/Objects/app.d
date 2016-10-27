@@ -38,6 +38,7 @@
 .\objects\app.o: ..\src\drivers\mcu\usart.h
 .\objects\app.o: ..\src\utils\global.h
 .\objects\app.o: ..\src\nvic.h
+.\objects\app.o: ..\src\drivers\mcu\i2c.h
 .\objects\app.o: ..\src\drivers\bsp\w25x16.h
 .\objects\app.o: ..\src\drivers\mcu\spi.h
 .\objects\app.o: ..\src\app\task_led_toggle.h

@@ -472,6 +472,11 @@
               <FileType>1</FileType>
               <FilePath>..\src\drivers\mcu\spi.c</FilePath>
             </File>
+            <File>
+              <FileName>i2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\drivers\mcu\i2c.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

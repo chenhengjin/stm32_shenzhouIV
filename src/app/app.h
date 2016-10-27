@@ -5,5 +5,6 @@ void Tasks_Init(void);
 
 void flash_test(void);
 
+void I2C_test(void);
 
 #endif

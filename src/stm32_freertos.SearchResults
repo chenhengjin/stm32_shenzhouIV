@@ -1,2 +1,2 @@
----- SPI_FLASH_SendHalfWord Matches (1 in 1 files) ----
-W25x16.c (drivers\bsp):u16 SPI_FLASH_SendHalfWord(u16 HalfWord)
+---- __delay_ Matches (1 in 1 files) ----
+I2c.c (drivers\mcu):void __delay_(void)
