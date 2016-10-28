@@ -36,7 +36,7 @@
 .\objects\main.o: ..\src\app\app.h
 .\objects\main.o: ..\src\rtos\freertos9_0_0\Source\include\FreeRTOS.h
 .\objects\main.o: D:\worksoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\main.o: ..\src\rtos\freertos9_0_0\FreeRTOSConfig.h
+.\objects\main.o: ..\src\FreeRTOSConfig.h
 .\objects\main.o: ..\src\rtos\freertos9_0_0\Source\include\projdefs.h
 .\objects\main.o: ..\src\rtos\freertos9_0_0\Source\include\portable.h
 .\objects\main.o: ..\src\rtos\freertos9_0_0\Source\include\deprecated_definitions.h

@@ -4,7 +4,7 @@
 .\objects\queue.o: ..\src\rtos\freertos9_0_0\Source\include\FreeRTOS.h
 .\objects\queue.o: D:\worksoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\queue.o: D:\worksoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\queue.o: ..\src\rtos\freertos9_0_0\FreeRTOSConfig.h
+.\objects\queue.o: ..\src\FreeRTOSConfig.h
 .\objects\queue.o: ..\src\rtos\freertos9_0_0\Source\include\projdefs.h
 .\objects\queue.o: ..\src\rtos\freertos9_0_0\Source\include\portable.h
 .\objects\queue.o: ..\src\rtos\freertos9_0_0\Source\include\deprecated_definitions.h

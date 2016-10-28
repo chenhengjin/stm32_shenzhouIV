@@ -35,7 +35,7 @@
 .\objects\task_led_toggle.o: ..\src\drivers\bsp\led.h
 .\objects\task_led_toggle.o: ..\src\rtos\freertos9_0_0\Source\include\FreeRTOS.h
 .\objects\task_led_toggle.o: D:\worksoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\task_led_toggle.o: ..\src\rtos\freertos9_0_0\FreeRTOSConfig.h
+.\objects\task_led_toggle.o: ..\src\FreeRTOSConfig.h
 .\objects\task_led_toggle.o: ..\src\rtos\freertos9_0_0\Source\include\projdefs.h
 .\objects\task_led_toggle.o: ..\src\rtos\freertos9_0_0\Source\include\portable.h
 .\objects\task_led_toggle.o: ..\src\rtos\freertos9_0_0\Source\include\deprecated_definitions.h

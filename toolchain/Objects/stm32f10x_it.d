@@ -5,7 +5,7 @@
 .\objects\stm32f10x_it.o: ..\src\rtos\freertos9_0_0\Source\include\FreeRTOS.h
 .\objects\stm32f10x_it.o: D:\worksoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\stm32f10x_it.o: D:\worksoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\stm32f10x_it.o: ..\src\rtos\freertos9_0_0\FreeRTOSConfig.h
+.\objects\stm32f10x_it.o: ..\src\FreeRTOSConfig.h
 .\objects\stm32f10x_it.o: ..\src\rtos\freertos9_0_0\Source\include\projdefs.h
 .\objects\stm32f10x_it.o: ..\src\rtos\freertos9_0_0\Source\include\portable.h
 .\objects\stm32f10x_it.o: ..\src\rtos\freertos9_0_0\Source\include\deprecated_definitions.h

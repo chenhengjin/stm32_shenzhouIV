@@ -39,7 +39,7 @@
 .\objects\task_modbus_process.o: ..\src\protocol\modbus\modbus_cfg.h
 .\objects\task_modbus_process.o: ..\src\rtos\freertos9_0_0\Source\include\FreeRTOS.h
 .\objects\task_modbus_process.o: D:\worksoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\task_modbus_process.o: ..\src\rtos\freertos9_0_0\FreeRTOSConfig.h
+.\objects\task_modbus_process.o: ..\src\FreeRTOSConfig.h
 .\objects\task_modbus_process.o: ..\src\rtos\freertos9_0_0\Source\include\projdefs.h
 .\objects\task_modbus_process.o: ..\src\rtos\freertos9_0_0\Source\include\portable.h
 .\objects\task_modbus_process.o: ..\src\rtos\freertos9_0_0\Source\include\deprecated_definitions.h

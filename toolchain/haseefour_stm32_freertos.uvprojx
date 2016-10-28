@@ -373,7 +373,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_CL,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\src;..\src\app;..\src\drivers\bsp;..\src\drivers\mcu;..\src\protocol;..\src\rtos\freertos9_0_0\Source\include;..\src\rtos\freertos9_0_0\Source\portable\RVDS\ARM_CM3;..\src\rtos\freertos9_0_0;..\src\utils;..\src\rtos\FreeRTOS-Plus-TCP;..\src\rtos\FreeRTOS-Plus-TCP\include;..\toolchain;..\src\protocol\modbus</IncludePath>
+              <IncludePath>..\src;..\src\app;..\src\drivers\bsp;..\src\drivers\mcu;..\src\protocol;..\src\rtos\freertos9_0_0\Source\include;..\src\rtos\freertos9_0_0\Source\portable\RVDS\ARM_CM3;..\src\rtos\freertos9_0_0;..\src\utils;..\src\rtos\FreeRTOS-Plus-TCP;..\src\rtos\FreeRTOS-Plus-TCP\include;..\toolchain;..\src\protocol\modbus;..\src\rtos\FreeRTOS_Plus_FAT\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -565,6 +565,16 @@
               <FileName>readme.txt</FileName>
               <FileType>5</FileType>
               <FilePath>..\readme.txt</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>freertos_fat</GroupName>
+          <Files>
+            <File>
+              <FileName>ff_stdio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\rtos\FreeRTOS_Plus_FAT\ff_stdio.c</FilePath>
             </File>
           </Files>
         </Group>

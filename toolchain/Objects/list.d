@@ -3,7 +3,7 @@
 .\objects\list.o: ..\src\rtos\freertos9_0_0\Source\include\FreeRTOS.h
 .\objects\list.o: D:\worksoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\list.o: D:\worksoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\list.o: ..\src\rtos\freertos9_0_0\FreeRTOSConfig.h
+.\objects\list.o: ..\src\FreeRTOSConfig.h
 .\objects\list.o: ..\src\rtos\freertos9_0_0\Source\include\projdefs.h
 .\objects\list.o: ..\src\rtos\freertos9_0_0\Source\include\portable.h
 .\objects\list.o: ..\src\rtos\freertos9_0_0\Source\include\deprecated_definitions.h
