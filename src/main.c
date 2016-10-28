@@ -17,11 +17,13 @@
 
 int main(void)
 {
-    //Tasks_Init();
+    Tasks_Init();
     Hardware_Init();
 
-	//flash_test();
-    I2C_test();
+#if 0
+	//flash_test();      //test SPI flash module
+    //I2C_Test();          //test IIC device
+#endif
     /* Start the scheduler. */ 
     vTaskStartScheduler();   //Æô¶¯ÄÚºË
 

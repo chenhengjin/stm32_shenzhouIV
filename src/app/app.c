@@ -7,7 +7,7 @@
 #include "led.h"
 #include "usart.h"
 #include "nvic.h"
-#include "i2c.h"
+#include "i2c_ee.h"
 //#include "mac.h"
 //#include "netconf.h"
 
@@ -40,7 +40,7 @@ void Hardware_Init(void)
     SpiFlashInit();
 #endif
 
-    I2C1_Init();
+    I2C_EE_Init();
 
 
 //#if USE_MAC
@@ -116,41 +116,48 @@ void flash_test(void)
 }
 #endif
 
-#if 1
-uint8_t I2C_write_buf[100] = {0};
-uint8_t I2C_read_buf[100] = {0};
-
-void I2C_test(void)
+void I2C_Test(void)
 {
-    uint16_t i;
+    u16 i;
+    u8 I2c_Buf_Write[256];
+    u8 I2c_Buf_Read[256];
 
-    for(i = 0; i < 100; i++)
-    {
-        I2C_write_buf[i] = i;
+    printf("写入的数据\n\r");
+
+    for(i=0;i<=255;i++) //填充缓冲
+    {   
+        I2c_Buf_Write[i]=i;
+        printf("0x%02X ",I2c_Buf_Write[i]);
+        if(i%16 == 15)
+        {
+            printf("\n\r");
+        }
     }
 
-    //往芯片内写入数据
-    I2C1_Write_Data(0xa0, 0,I2C_write_buf, 50);
-	
-    //从芯片读取数据
-    I2C1_Read_Data(0xa0, 0,I2C_read_buf, 50);
+    //将I2c_Buf_Write中顺序递增的数据写入EERPOM中 
+    I2C_EE_BufferWrite(I2c_Buf_Write,EEP_Firstpage,256);	 
 
-    if(!memcmp(I2C_write_buf, I2C_read_buf, 50))
-    {
-        /* User can add his own implementation to report the file name and line number,
-        ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-        printf("\r\nIIC write success!\r\n");
+    printf("\n\r读出的数据\n\r");
+    //将EEPROM读出数据顺序保持到I2c_Buf_Read中 
+    I2C_EE_BufferRead(I2c_Buf_Read,EEP_Firstpage,256); 
+
+    //将I2c_Buf_Read中的数据通过串口打印
+    for(i=0;i<256;i++)
+    {	
+        if(I2c_Buf_Read[i]!=I2c_Buf_Write[i])
+        {
+            printf("0x%02X ", I2c_Buf_Read[i]);
+            printf("错误:I2C EEPROM写入与读出的数据不一致\n\r");
+            return;
+        }
+        printf("0x%02X ", I2c_Buf_Read[i]);
+        if(i%16 == 15)
+        {
+            printf("\n\r");
+        }
     }
-
-    else
-    {
-        /* User can add his own implementation to report the file name and line number,
-        ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-        printf("\r\nIIC write fail!\r\n");
-    }
-
+    printf("读写测试通过PASSED\n\r");
 }
-#endif
 
 
 

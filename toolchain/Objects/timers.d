@@ -1,8 +1,8 @@
 .\objects\timers.o: ..\src\rtos\freertos9_0_0\Source\timers.c
-.\objects\timers.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\timers.o: D:\worksoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\timers.o: ..\src\rtos\freertos9_0_0\Source\include\FreeRTOS.h
-.\objects\timers.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\timers.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\timers.o: D:\worksoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\timers.o: D:\worksoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\timers.o: ..\src\rtos\freertos9_0_0\FreeRTOSConfig.h
 .\objects\timers.o: ..\src\rtos\freertos9_0_0\Source\include\projdefs.h
 .\objects\timers.o: ..\src\rtos\freertos9_0_0\Source\include\portable.h
