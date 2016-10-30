@@ -1,2 +1,0 @@
----- __delay_ Matches (1 in 1 files) ----
-I2c.c (drivers\mcu):void __delay_(void)
