@@ -175,16 +175,29 @@ void I2C_Test(void)
 
 
 BYTE work[_MAX_SS]; /* Work area (larger is better for process time) */
+typedef struct
+{
+	uint8_t test1;
+	uint32_t test2;
+	float test3;
+}teststruct;
+
 void FAT_Test(void)
 {
     FATFS fs; /* FatFs文件系统对象 */
     FIL fnew; /* 文件对象 */
     FRESULT res_flash; /* 文件操作结果 */
     UINT fnum; /* 文件成功读写数量 */
-    
+    teststruct test;
+    teststruct readtest;
+
+	test.test1 = 30;
+	test.test2 = 90;
+	test.test3 = 15.6;
+	
 	/* 写缓冲区*/
-    BYTE textFileBuffer[] = "神舟IV号开发板, FAT文件系统测试!\r\n";
-    BYTE ReadBuffer[100];
+    //BYTE textFileBuffer[] = "神舟IV号开发板, FAT文件系统测试!\r\n";
+    //BYTE ReadBuffer[100];
 
     //在外部SPI Flash挂载文件系统，文件系统挂载时会对SPI设备初始化
     res_flash = f_mount(&fs, "0:", 1);
@@ -259,19 +272,19 @@ void FAT_Test(void)
     /*---------------------- 文件系统测试：写测试 ----------------------*/
     /* 打开文件，如果文件不存在则创建它 */
     printf("\r\n****** 即将进行文件写入测试... ******\r\n");
-    res_flash = f_open(&fnew, "FatFstest.txt",FA_OPEN_ALWAYS | FA_WRITE );
+    res_flash = f_open(&fnew, "FatFstest.bin",FA_OPEN_ALWAYS | FA_WRITE );
     if ( res_flash == FR_OK )
     {
         printf("\r\n 打开创建FatFstest文件成功 \r\n");
         
         /* 将指定存储区内容写入到文件内 */
-        f_write(&fnew, textFileBuffer, sizeof(textFileBuffer), &fnum);
+        f_write(&fnew, &test, sizeof(test), &fnum);
         
-        if (fnum == sizeof(textFileBuffer))
+        if (fnum == sizeof(test))
         {
             printf("》文件写入成功，写入字节数据：%d\n", fnum);
 
-            printf("》向文件写入的数据为：\r\n%s\r\n", textFileBuffer);
+            //printf("》向文件写入的数据为：\r\n%s\r\n", test);
         }
         else
         {
@@ -288,19 +301,22 @@ void FAT_Test(void)
 
     /*------------------- 文件系统测试：读测试 --------------------------*/
     printf("****** 即将进行文件读取测试******\r\n");
-    res_flash = f_open(&fnew, "FatFstest.txt", FA_OPEN_EXISTING | FA_READ);
+    res_flash = f_open(&fnew, "FatFstest.bin", FA_OPEN_EXISTING | FA_READ);
 
     if (res_flash == FR_OK)
     {
         printf(" \r\n 打开文件成功 \r\n");
 
-        res_flash = f_read(&fnew, ReadBuffer, sizeof(textFileBuffer), &fnum);
+        res_flash = f_read(&fnew, &readtest, sizeof(readtest), &fnum);
 
         if (res_flash == FR_OK)
         {
 
-            printf("文件读取成功,读到字节数据：%d\r\n", fnum);
-            printf("读取得的文件数据为：\r\n%s \r\n", ReadBuffer);
+            //printf("文件读取成功,读到字节数据：%d\r\n", fnum);
+            //printf("读取得的文件数据为：\r\n%s \r\n", ReadBuffer);
+            printf("test1为：\r\n%d \r\n", readtest.test1);
+			printf("test2为：\r\n%d \r\n", readtest.test2);
+			printf("test3为：\r\n%f\r\n", readtest.test3);
 
         }
         else
