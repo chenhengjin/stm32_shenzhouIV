@@ -21,7 +21,7 @@ int main(void)
     Hardware_Init();
 	
 	
-
+FAT_Test();        //FAT FSmodule TEST
 #if 0
 	//FAT_Test();        //FAT FSmodule TEST
 	//flash_test();      //test SPI flash module
