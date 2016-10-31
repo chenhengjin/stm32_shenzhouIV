@@ -202,39 +202,17 @@ void FAT_Test(void)
     //在外部SPI Flash挂载文件系统，文件系统挂载时会对SPI设备初始化
     res_flash = f_mount(&fs, "0:", 1);
 
-#if 0
-        /* 格式化 */
-        printf("\r\n 即将进行格式化 \r\n");
-
-        res_flash = f_mkfs("0:",FM_ANY,0,work,sizeof(work));
-        if (res_flash == FR_OK)
-        {
-
-            printf("》FLASH已成功格式化文件系统。\r\n");
-
-            /* 格式化后，先取消挂载 */
-            res_flash = f_mount(NULL, "0:", 1);
-
-            /* 重新挂载 */
-			res_flash = f_mount(&fs, "0:", 1);
-
-        }
-        else
-        {
-            printf("\r\n格式化失败\r\n");
-            while (1);
-        }
-#endif
 #if 1
     /*----------------------- 格式化测试 ---------------------------*/
     /* 如果没有文件系统就格式化创建创建文件系统 */
-    if (res_flash == FR_NO_FILESYSTEM)
+    //if (res_flash == FR_NO_FILESYSTEM)
+    if(1)
     {
 
         printf("》FLASH还没有文件系统，即将进行格式化...\r\n");
 
         /* 格式化 */
-        res_flash = f_mkfs("0:",FM_ANY,0,work,sizeof(work));
+        res_flash = f_mkfs("0:",FM_FAT,0,work,sizeof(work));
 
         if (res_flash == FR_OK)
         {
