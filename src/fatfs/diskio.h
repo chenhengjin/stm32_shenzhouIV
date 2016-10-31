@@ -12,6 +12,12 @@ extern "C" {
 #include "integer.h"
 
 
+#define DEV_SPI_FLASH       0   /*spi flash 卷标为0*/
+
+#define FLASH_SECTOR_SIZE   512  //一个扇区的字节数，虚拟的，真实的是4096个字节
+#define FLASH_BLOCK_SIZE    8      //真正的扇区为4K字节，fat扇区为512，8的倍数
+
+
 /* Status of Disk Functions */
 typedef BYTE	DSTATUS;
 

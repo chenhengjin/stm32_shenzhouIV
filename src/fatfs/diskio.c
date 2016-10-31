@@ -17,11 +17,7 @@
 #define DEV_USB     2   /* Example: Map USB MSD to physical drive 2 */
 #endif
 
-#define DEV_SPI_FLASH       0   /*spi flash 卷标为0*/
-
-#define FLASH_SECTOR_SIZE   512  //一个扇区的字节数，虚拟的，真实的是4096个字节
 uint16_t FLASH_SECTOR_COUNT = 2048 * 2; //W25Q1218,前2M字节给FATFS占用
-#define FLASH_BLOCK_SIZE    8      //真正的扇区为4K字节，fat扇区为512，8的倍数
 
 
 /*-----------------------------------------------------------------------*/
@@ -75,37 +71,22 @@ DSTATUS disk_initialize (
     BYTE pdrv               /* Physical drive nmuber to identify the drive */
 )
 {
-    DSTATUS stat;
+//    DSTATUS stat;
     int result = 0;
 
     switch (pdrv)
     {
-#if 0
-        case DEV_RAM :
-            result = RAM_disk_initialize();
-
-            // translate the reslut code here
-
-            return stat;
-
-        case DEV_MMC :
-            result = MMC_disk_initialize();
-
-            // translate the reslut code here
-
-            return stat;
-
-        case DEV_USB :
-            result = USB_disk_initialize();
-
-            // translate the reslut code here
-
-            return stat;
-#endif
         case DEV_SPI_FLASH://外部flash
             SpiFlashInit();
-            FLASH_SECTOR_COUNT = 2048 * 2; //W25Q16,前2M字节给FATFS占用
-            result = 0;
+            FLASH_SECTOR_COUNT = 2048 * 1; //W25Q16,512 * 2 * 1024 前1M字节给FATFS占用
+			if(!SpiFlashCheck())  //获取ID
+			{
+				result = 0;
+			}
+			else
+			{
+				result = 1;
+			}
             break;
         default:
             result = 1;
@@ -122,11 +103,11 @@ DSTATUS disk_initialize (
 
 /*-----------------------------------------------------------------------*/
 /* Read Sector(s)
-//读扇区
-//drv:磁盘编号0~9
-//*buff:数据接收缓冲首地址
-//sector:扇区地址
-//count:需要读取的扇区数*/
+读扇区
+drv:磁盘编号0~9
+buff:数据接收缓冲首地址
+sector:扇区地址
+count:需要读取的扇区数*/
 /*-----------------------------------------------------------------------*/
 DRESULT disk_read (
     BYTE pdrv,      /* Physical drive nmuber to identify the drive */
@@ -136,7 +117,7 @@ DRESULT disk_read (
 )
 {
     DRESULT res;
-    int result;
+
 
     if (!count)
     {
@@ -144,34 +125,6 @@ DRESULT disk_read (
     }
     switch (pdrv)
     {
-#if 0
-        case DEV_RAM :
-            // translate the arguments here
-
-            result = RAM_disk_read(buff, sector, count);
-
-            // translate the reslut code here
-
-            return res;
-
-        case DEV_MMC :
-            // translate the arguments here
-
-            result = MMC_disk_read(buff, sector, count);
-
-            // translate the reslut code here
-
-            return res;
-
-        case DEV_USB :
-            // translate the arguments here
-
-            result = USB_disk_read(buff, sector, count);
-
-            // translate the reslut code here
-
-            return res;
-#endif
         case DEV_SPI_FLASH://外部flash
             for(; count > 0; count--)
             {
@@ -180,16 +133,14 @@ DRESULT disk_read (
                 sector++;
                 buff += FLASH_SECTOR_SIZE;
             }
-            res = 0;
+            res = RES_OK;
             break;
         default:
-            res = 1;
+            res = RES_ERROR;
 
     }
-    if(!res)
-        return RES_OK;
-    else
-        return RES_PARERR;
+
+    return res;
 }
 
 
@@ -206,41 +157,12 @@ DRESULT disk_write (
 )
 {
     DRESULT res;
-    int result;
 
     if (!count)
         return RES_PARERR;//count不能等于0，否则返回参数错误
 
     switch (pdrv)
     {
-#if 0
-        case DEV_RAM :
-            // translate the arguments here
-
-            result = RAM_disk_write(buff, sector, count);
-
-            // translate the reslut code here
-
-            return res;
-
-        case DEV_MMC :
-            // translate the arguments here
-
-            result = MMC_disk_write(buff, sector, count);
-
-            // translate the reslut code here
-
-            return res;
-
-        case DEV_USB :
-            // translate the arguments here
-
-            result = USB_disk_write(buff, sector, count);
-
-            // translate the reslut code here
-
-            return res;
-#endif
         case DEV_SPI_FLASH://外部flash
             for(; count > 0; count--)
             {
@@ -248,17 +170,15 @@ DRESULT disk_write (
                 sector++;
                 buff += FLASH_SECTOR_SIZE;
             }
-            res = 0;
+            res = RES_OK;
             break;
         default:
-            res = 1;
+            res = RES_ERROR;
             break;
 
     }
-    if(!res)
-        return RES_OK;
-    else
-        return RES_PARERR;
+    return res;
+
 }
 
 
@@ -274,30 +194,7 @@ DRESULT disk_ioctl (
 )
 {
     DRESULT res;
-    int result;
 
-#if 0
-    switch (pdrv)
-    {
-        case DEV_RAM :
-
-            // Process of the command for the RAM drive
-
-            return res;
-
-        case DEV_MMC :
-
-            // Process of the command for the MMC/SD card
-
-            return res;
-
-        case DEV_USB :
-
-            // Process of the command the USB drive
-
-            return res;
-    }
-#endif
     if(pdrv == DEV_SPI_FLASH) //外部 SPI FLASH
     {
         switch(cmd)

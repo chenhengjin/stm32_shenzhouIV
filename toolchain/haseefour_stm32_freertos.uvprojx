@@ -150,7 +150,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>6</TargetSelection>
+          <TargetSelection>4</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -373,7 +373,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_CL,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\src;..\src\app;..\src\drivers\bsp;..\src\drivers\mcu;..\src\protocol;..\src\rtos\freertos9_0_0\Source\include;..\src\rtos\freertos9_0_0\Source\portable\RVDS\ARM_CM3;..\src\rtos\freertos9_0_0;..\src\utils;..\src\rtos\FreeRTOS-Plus-TCP;..\src\rtos\FreeRTOS-Plus-TCP\include;..\toolchain;..\src\protocol\modbus;..\src\rtos\FreeRTOS_Plus_FAT\include</IncludePath>
+              <IncludePath>..\src;..\src\app;..\src\drivers\bsp;..\src\drivers\mcu;..\src\protocol;..\src\rtos\freertos9_0_0\Source\include;..\src\rtos\freertos9_0_0\Source\portable\RVDS\ARM_CM3;..\src\rtos\freertos9_0_0;..\src\utils;..\src\rtos\FreeRTOS-Plus-TCP;..\src\rtos\FreeRTOS-Plus-TCP\include;..\toolchain;..\src\protocol\modbus;..\src\fatfs</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -544,6 +544,26 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>fatfs</GroupName>
+          <Files>
+            <File>
+              <FileName>ff.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\fatfs\ff.c</FilePath>
+            </File>
+            <File>
+              <FileName>diskio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\fatfs\diskio.c</FilePath>
+            </File>
+            <File>
+              <FileName>cc936.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\fatfs\option\cc936.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>modbus</GroupName>
           <Files>
             <File>
@@ -565,16 +585,6 @@
               <FileName>readme.txt</FileName>
               <FileType>5</FileType>
               <FilePath>..\readme.txt</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>freertos_fat</GroupName>
-          <Files>
-            <File>
-              <FileName>ff_stdio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\src\rtos\FreeRTOS_Plus_FAT\ff_stdio.c</FilePath>
             </File>
           </Files>
         </Group>

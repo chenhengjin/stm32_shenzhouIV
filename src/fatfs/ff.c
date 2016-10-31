@@ -6039,3 +6039,24 @@ int f_printf (
 
 #endif /* !_FS_READONLY */
 #endif /* _USE_STRFUNC */
+
+
+__weak DWORD get_fattime(void)
+{
+
+	/* 返回当前时间戳 */
+
+	return ((DWORD)(2016 - 1980) << 25) /* Year 2016 */
+
+	| ((DWORD)10 << 21) /* Month 10 */
+
+	| ((DWORD)31 << 16) /* Mday 31 */
+
+	| ((DWORD)0 << 11) /* Hour 0 */
+
+	| ((DWORD)0 << 5) /* Min 0 */
+
+	| ((DWORD)0 >> 1); /* Sec 0 */
+
+}
+

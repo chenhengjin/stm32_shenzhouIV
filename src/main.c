@@ -19,8 +19,11 @@ int main(void)
 {
     Tasks_Init();
     Hardware_Init();
+	
+	
 
 #if 0
+	//FAT_Test();        //FAT FSmodule TEST
 	//flash_test();      //test SPI flash module
     //I2C_Test();          //test IIC device
 #endif

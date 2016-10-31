@@ -43,3 +43,8 @@
 .\objects\app.o: ..\src\drivers\mcu\spi.h
 .\objects\app.o: ..\src\app\task_led_toggle.h
 .\objects\app.o: ..\src\app\task_modbus_process.h
+.\objects\app.o: ..\src\fatfs\ff.h
+.\objects\app.o: ..\src\fatfs\integer.h
+.\objects\app.o: ..\src\fatfs\ffconf.h
+.\objects\app.o: ..\src\fatfs\ffconf.h
+.\objects\app.o: ..\src\fatfs\diskio.h

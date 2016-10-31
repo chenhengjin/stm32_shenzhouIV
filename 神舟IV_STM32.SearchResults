@@ -1,0 +1,13 @@
+---- disk_initialize Matches (13 in 5 files) ----
+App.c (src\app):	disk_initialize(DEV_SPI_FLASH);
+Diskio.c (src\fatfs):DSTATUS disk_initialize (
+Diskio.h (src\fatfs):DSTATUS disk_initialize (BYTE pdrv);
+Ff.c (src\fatfs):	stat = disk_initialize(fs->drv);	/* Initialize the physical drive */
+Ff.c (src\fatfs):	stat = disk_initialize(pdrv);
+Ff.c (src\fatfs):	stat = disk_initialize(pdrv);
+Haseefour_stm32_freertos.htm (toolchain\objects):<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_initialize
+Haseefour_stm32_freertos.htm (toolchain\objects):<BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_initialize
+Haseefour_stm32_freertos.htm (toolchain\objects):<P><STRONG><a name="[6d]"></a>disk_initialize</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, diskio.o(i.disk_initialize))
+Haseefour_stm32_freertos.htm (toolchain\objects):<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = disk_initialize &rArr; SpiFlashInit &rArr; SPI1_Init &rArr; SPI1_Pin_Init &rArr; GPIO_Init
+Haseefour_stm32_freertos.htm (toolchain\objects):<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_initialize
+Haseefour_stm32_freertos.htm (toolchain\objects):<BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_initialize
