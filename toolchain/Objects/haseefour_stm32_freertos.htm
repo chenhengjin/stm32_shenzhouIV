@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\haseefour_stm32_freertos.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\haseefour_stm32_freertos.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Mon Oct 31 17:48:31 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Thu Nov 03 11:33:08 2016
 <BR><P>
-<H3>Maximum Stack Usage =       9360 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =       2120 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 main &rArr; FAT_Test &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 <P>
@@ -535,8 +535,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_cl.o(RESET)
 </UL>
-<P><STRONG><a name="[66]"></a>FAT_Test</STRONG> (Thumb, 308 bytes, Stack size 8400 bytes, app.o(i.FAT_Test))
-<BR><BR>[Stack]<UL><LI>Max Depth = 9360<LI>Call Chain = FAT_Test &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
+<P><STRONG><a name="[66]"></a>FAT_Test</STRONG> (Thumb, 300 bytes, Stack size 1168 bytes, app.o(i.FAT_Test))
+<BR><BR>[Stack]<UL><LI>Max Depth = 2120<LI>Call Chain = FAT_Test &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_write
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_read
@@ -1138,7 +1138,6 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_mkfs
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sync_fs
-<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_volume
 </UL>
 
 <P><STRONG><a name="[e2]"></a>disk_read</STRONG> (Thumb, 62 bytes, Stack size 24 bytes, diskio.o(i.disk_read))
@@ -1179,7 +1178,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FAT_Test
 </UL>
 
-<P><STRONG><a name="[68]"></a>f_mkfs</STRONG> (Thumb, 1702 bytes, Stack size 136 bytes, ff.o(i.f_mkfs))
+<P><STRONG><a name="[68]"></a>f_mkfs</STRONG> (Thumb, 1654 bytes, Stack size 136 bytes, ff.o(i.f_mkfs))
 <BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = f_mkfs &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_initialize
@@ -1204,8 +1203,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FAT_Test
 </UL>
 
-<P><STRONG><a name="[69]"></a>f_open</STRONG> (Thumb, 526 bytes, Stack size 616 bytes, ff.o(i.f_open))
-<BR><BR>[Stack]<UL><LI>Max Depth = 960<LI>Call Chain = f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
+<P><STRONG><a name="[69]"></a>f_open</STRONG> (Thumb, 508 bytes, Stack size 616 bytes, ff.o(i.f_open))
+<BR><BR>[Stack]<UL><LI>Max Depth = 952<LI>Call Chain = f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_fattime
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_read
@@ -1225,8 +1224,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FAT_Test
 </UL>
 
-<P><STRONG><a name="[6c]"></a>f_read</STRONG> (Thumb, 478 bytes, Stack size 72 bytes, ff.o(i.f_read))
-<BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = f_read &rArr; get_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
+<P><STRONG><a name="[6c]"></a>f_read</STRONG> (Thumb, 428 bytes, Stack size 72 bytes, ff.o(i.f_read))
+<BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = f_read &rArr; get_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_write
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_read
@@ -1254,8 +1253,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_close
 </UL>
 
-<P><STRONG><a name="[6a]"></a>f_write</STRONG> (Thumb, 548 bytes, Stack size 72 bytes, ff.o(i.f_write))
-<BR><BR>[Stack]<UL><LI>Max Depth = 304<LI>Call Chain = f_write &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
+<P><STRONG><a name="[6a]"></a>f_write</STRONG> (Thumb, 494 bytes, Stack size 64 bytes, ff.o(i.f_write))
+<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = f_write &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_write
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_read
@@ -1296,7 +1295,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[47]"></a>main</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 9360<LI>Call Chain = main &rArr; FAT_Test &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
+<BR><BR>[Stack]<UL><LI>Max Depth = 2120<LI>Call Chain = main &rArr; FAT_Test &rArr; f_open &rArr; dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Tasks_Init
@@ -1917,7 +1916,7 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;create_name
 </UL>
 
-<P><STRONG><a name="[f0]"></a>clmt_clust</STRONG> (Thumb, 54 bytes, Stack size 20 bytes, ff.o(i.clmt_clust))
+<P><STRONG><a name="[f0]"></a>clmt_clust</STRONG> (Thumb, 50 bytes, Stack size 20 bytes, ff.o(i.clmt_clust))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = clmt_clust
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_write
@@ -1942,7 +1941,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[cf]"></a>create_chain</STRONG> (Thumb, 224 bytes, Stack size 32 bytes, ff.o(i.create_chain))
-<BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
+<BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;put_fat
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_fat
@@ -1963,7 +1962,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[d6]"></a>dir_alloc</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, ff.o(i.dir_alloc))
-<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = dir_alloc &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
+<BR><BR>[Stack]<UL><LI>Max Depth = 280<LI>Call Chain = dir_alloc &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;move_window
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dir_sdi
@@ -1973,7 +1972,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[d9]"></a>dir_find</STRONG> (Thumb, 252 bytes, Stack size 32 bytes, ff.o(i.dir_find))
-<BR><BR>[Stack]<UL><LI>Max Depth = 296<LI>Call Chain = dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
+<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sum_sfn
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;move_window
@@ -1986,8 +1985,8 @@ Local Symbols
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dir_register
 </UL>
 
-<P><STRONG><a name="[d8]"></a>dir_next</STRONG> (Thumb, 282 bytes, Stack size 32 bytes, ff.o(i.dir_next))
-<BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
+<P><STRONG><a name="[d8]"></a>dir_next</STRONG> (Thumb, 268 bytes, Stack size 32 bytes, ff.o(i.dir_next))
+<BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sync_window
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mem_set
@@ -2001,7 +2000,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[de]"></a>dir_register</STRONG> (Thumb, 322 bytes, Stack size 48 bytes, ff.o(i.dir_register))
-<BR><BR>[Stack]<UL><LI>Max Depth = 344<LI>Call Chain = dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
+<BR><BR>[Stack]<UL><LI>Max Depth = 336<LI>Call Chain = dir_register &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sum_sfn
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;put_lfn
@@ -2017,8 +2016,8 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_open
 </UL>
 
-<P><STRONG><a name="[d7]"></a>dir_sdi</STRONG> (Thumb, 166 bytes, Stack size 24 bytes, ff.o(i.dir_sdi))
-<BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = dir_sdi &rArr; get_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
+<P><STRONG><a name="[d7]"></a>dir_sdi</STRONG> (Thumb, 154 bytes, Stack size 24 bytes, ff.o(i.dir_sdi))
+<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = dir_sdi &rArr; get_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_fat
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clust2sect
@@ -2029,12 +2028,11 @@ Local Symbols
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dir_alloc
 </UL>
 
-<P><STRONG><a name="[eb]"></a>find_volume</STRONG> (Thumb, 822 bytes, Stack size 88 bytes, ff.o(i.find_volume))
+<P><STRONG><a name="[eb]"></a>find_volume</STRONG> (Thumb, 744 bytes, Stack size 88 bytes, ff.o(i.find_volume))
 <BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = find_volume &rArr; check_fs &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_initialize
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_status
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disk_ioctl
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;move_window
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ld_word
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ld_dword
@@ -2045,8 +2043,8 @@ Local Symbols
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;f_mount
 </UL>
 
-<P><STRONG><a name="[ec]"></a>follow_path</STRONG> (Thumb, 174 bytes, Stack size 40 bytes, ff.o(i.follow_path))
-<BR><BR>[Stack]<UL><LI>Max Depth = 336<LI>Call Chain = follow_path &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
+<P><STRONG><a name="[ec]"></a>follow_path</STRONG> (Thumb, 162 bytes, Stack size 32 bytes, ff.o(i.follow_path))
+<BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = follow_path &rArr; dir_find &rArr; dir_next &rArr; create_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ld_clust
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dir_sdi
@@ -2064,8 +2062,8 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dir_register
 </UL>
 
-<P><STRONG><a name="[d0]"></a>get_fat</STRONG> (Thumb, 306 bytes, Stack size 40 bytes, ff.o(i.get_fat))
-<BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = get_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
+<P><STRONG><a name="[d0]"></a>get_fat</STRONG> (Thumb, 224 bytes, Stack size 32 bytes, ff.o(i.get_fat))
+<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = get_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;move_window
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ld_word
@@ -2156,8 +2154,8 @@ Local Symbols
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;check_fs
 </UL>
 
-<P><STRONG><a name="[d1]"></a>put_fat</STRONG> (Thumb, 400 bytes, Stack size 40 bytes, ff.o(i.put_fat))
-<BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
+<P><STRONG><a name="[d1]"></a>put_fat</STRONG> (Thumb, 312 bytes, Stack size 32 bytes, ff.o(i.put_fat))
+<BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;st_word
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;st_dword
@@ -2177,7 +2175,7 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[ef]"></a>remove_chain</STRONG> (Thumb, 154 bytes, Stack size 32 bytes, ff.o(i.remove_chain))
-<BR><BR>[Stack]<UL><LI>Max Depth = 232<LI>Call Chain = remove_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
+<BR><BR>[Stack]<UL><LI>Max Depth = 224<LI>Call Chain = remove_chain &rArr; put_fat &rArr; move_window &rArr; sync_window &rArr; disk_write &rArr; SpiFlashWrite &rArr; SpiFlashWriteNoCheck &rArr; SPIFlashWritePage &rArr; SpiFlashWaitBusy &rArr; SpiFlashReadSR
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;put_fat
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_fat

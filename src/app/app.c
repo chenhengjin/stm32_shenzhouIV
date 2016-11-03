@@ -174,7 +174,7 @@ void I2C_Test(void)
 }
 
 
-BYTE work[_MAX_SS]; /* Work area (larger is better for process time) */
+BYTE work[4096]; /* Work area (larger is better for process time) */
 typedef struct
 {
 	uint8_t test1;

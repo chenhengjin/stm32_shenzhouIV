@@ -17,7 +17,7 @@
 #define DEV_USB     2   /* Example: Map USB MSD to physical drive 2 */
 #endif
 
-uint16_t FLASH_SECTOR_COUNT = 2048 * 2; //W25Q1218,前2M字节给FATFS占用
+uint16_t FLASH_SECTOR_COUNT = 2048 * 1; //W25Q1218,前2M字节给FATFS占用
 
 
 /*-----------------------------------------------------------------------*/
