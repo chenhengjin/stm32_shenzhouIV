@@ -104,25 +104,6 @@ u32 ETH_TxPkt_ChainMode(u16 FrameLength);
 
 static void ethernetif_input( void * pvParameters );
 static void arp_timer(void *arg);
-uint8_t MACaddr[6];
-
-/**
- * Setting the MAC address.
- *
- * @param netif the already initialized lwip network interface structure
- *        for this ethernetif
- */
-void Set_MAC_Address(uint8_t* macadd)
-{
-	MACaddr[0] = macadd[0];
-	MACaddr[1] = macadd[1];
-	MACaddr[2] = macadd[2];
-	MACaddr[3] = macadd[3];
-	MACaddr[4] = macadd[4];
-	MACaddr[5] = macadd[5];
-  
-  ETH_MACAddressConfig(ETH_MAC_Address0, macadd);  
-}
 
 
 /**

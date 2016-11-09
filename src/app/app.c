@@ -13,6 +13,7 @@
 
 /*********BSP drivers***********/
 #include "w25x16.h"
+#include "ethernet.h"
 
 /*******header of tasks********/
 #include "task_led_toggle.h"
@@ -55,8 +56,8 @@ void Hardware_Init(void)
 #endif
 
     I2C_EE_Init();
-
-
+		
+	Ethernet_Init();
 //#if USE_MAC
     //MAC_Init();
     //LwIP_Init();

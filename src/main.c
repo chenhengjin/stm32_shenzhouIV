@@ -11,6 +11,7 @@
 #include "FreeRTOSConfig.h"
 #include "timers.h"
 #include "usart.h"
+#include "global.h"
 
 
 int main(void)

@@ -20,7 +20,6 @@ Modified at:
 #endif	/* NULL */
 
 
-#define ENABLE_INTERRUPT() do{__enable_irq();}while(0)
 #define DISABLE_INTERRUPT() do{__disable_irq();}while(0)
 
 typedef enum {FALSE = 0, TRUE = !FALSE}bool_t;
