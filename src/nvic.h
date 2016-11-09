@@ -38,7 +38,7 @@ void CFG_My_NVIC(void);
 #define USART2_DMA_TX_IRQPREPRIO 14
 #define USART2_DMA_TX_IRQSUBPRIO 0x00
 
-#define MAC_IRQPREPRIO 2 //抢占优先级
-#define MAC_IRQSUBPRIO 0x00   //响应优先级
+#define ETHERNET_IRQPREPRIO 2 //抢占优先级
+#define ETHERNET_IRQSUBPRIO 0x00   //响应优先级
 
 #endif

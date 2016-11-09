@@ -1,0 +1,9 @@
+.\objects\dns.o: D:\worksoftware\Keil_v5\ARM\PACK\lwIP\lwIP\1.4.1\lwip\src\core\dns.c
+.\objects\dns.o: D:\worksoftware\Keil_v5\ARM\PACK\lwIP\lwIP\1.4.1\lwip\src\include\lwip/opt.h
+.\objects\dns.o: E:\workspace\stm32\stm32_shenzhouIV\toolchain\RTE\Network\lwipopts.h
+.\objects\dns.o: D:\worksoftware\Keil_v5\ARM\PACK\lwIP\lwIP\1.4.1\lwip\src\include\lwip/debug.h
+.\objects\dns.o: D:\worksoftware\Keil_v5\ARM\PACK\lwIP\lwIP\1.4.1\lwip\src\include\lwip/arch.h
+.\objects\dns.o: D:\worksoftware\Keil_v5\ARM\PACK\lwIP\lwIP\1.4.1\ports\cmsis-rtos\include\arch/cc.h
+.\objects\dns.o: D:\worksoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\dns.o: D:\worksoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\dns.o: D:\worksoftware\Keil_v5\ARM\PACK\lwIP\lwIP\1.4.1\lwip\src\include\lwip/opt.h

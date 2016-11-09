@@ -70,6 +70,7 @@ void LwIP_Init(void)
 	IP4_ADDR(&netmask, NETMASK_ADDR0, NETMASK_ADDR1 , NETMASK_ADDR2, NETMASK_ADDR3);
 	IP4_ADDR(&gw, GW_ADDR0, GW_ADDR1, GW_ADDR2, GW_ADDR3);
 #endif
+  Set_MAC_Address(macaddress);
 
   /* - netif_add(struct netif *netif, struct ip_addr *ipaddr,
             struct ip_addr *netmask, struct ip_addr *gw,

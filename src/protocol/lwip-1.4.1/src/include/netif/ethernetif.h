@@ -7,6 +7,7 @@
 
 err_t ethernetif_init(struct netif *netif);
 
+void Set_MAC_Address(uint8_t* macadd);
 
 
 #endif 
