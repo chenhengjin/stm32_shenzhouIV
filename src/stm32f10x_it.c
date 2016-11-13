@@ -28,16 +28,23 @@
 
 /* Scheduler includes. */
 #include "FreeRTOS.h"
+#include "task.h"
 #include "queue.h"
+#include "Semphr.h"
 #include "FreeRTOSConfig.h"
 #include "timers.h"
 
-
 #include "stm32f10x_it.h"
 #include "stm32f10x.h"
+#include "stm32_eth.h"
 
 #include "usart.h"
 
+/* lwip includes */
+#include "sys.h"
+
+
+extern xSemaphoreHandle s_xSemaphore;
 
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
@@ -142,6 +149,36 @@ void DebugMon_Handler(void)
     {
     }
 }
+
+#if 0
+/**
+  * @brief  This function handles ETH interrupt request.
+  * @param  None
+  * @retval None
+  */
+void ETH_IRQHandler(void)
+{
+	portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
+
+	/* Frame received */
+	if ( ETH_GetDMAFlagStatus(ETH_DMA_FLAG_R) == SET) 
+	{
+		/* Give the semaphore to wakeup LwIP task */
+		xSemaphoreGiveFromISR( s_xSemaphore, &xHigherPriorityTaskWoken );   
+	}
+
+	/* Clear the interrupt flags. */
+	/* Clear the Eth DMA Rx IT pending bits */
+	ETH_DMAClearITPendingBit(ETH_DMA_IT_R);
+	ETH_DMAClearITPendingBit(ETH_DMA_IT_NIS);
+
+	/* Switch tasks if necessary. */	
+	if( xHigherPriorityTaskWoken != pdFALSE )
+	{
+		portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
+	}
+}
+#endif
 
 
 

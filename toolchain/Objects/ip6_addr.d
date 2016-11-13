@@ -1,0 +1,12 @@
+.\objects\ip6_addr.o: ..\src\protocol\lwip-1.4.1\src\core\ipv6\ip6_addr.c
+.\objects\ip6_addr.o: ..\src\protocol\lwip-1.4.1\src\include\lwip/opt.h
+.\objects\ip6_addr.o: ..\src\protocol\lwip-1.4.1\lwipopts.h
+.\objects\ip6_addr.o: ..\src\protocol\lwip-1.4.1\src\include\lwip/debug.h
+.\objects\ip6_addr.o: ..\src\protocol\lwip-1.4.1\src\include\lwip/arch.h
+.\objects\ip6_addr.o: ..\src\protocol\lwip-1.4.1\src\include\arch/cc.h
+.\objects\ip6_addr.o: ..\src\protocol\lwip-1.4.1\src\include\arch/cpu.h
+.\objects\ip6_addr.o: ..\src\protocol\lwip-1.4.1\src\include\lwip/opt.h
+.\objects\ip6_addr.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\ip6_addr.o: ..\src\protocol\lwip-1.4.1\src\include\ipv4\lwip/ip_addr.h
+.\objects\ip6_addr.o: ..\src\protocol\lwip-1.4.1\src\include\lwip/def.h
+.\objects\ip6_addr.o: ..\src\protocol\lwip-1.4.1\src\include\ipv4\lwip/inet.h

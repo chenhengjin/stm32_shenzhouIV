@@ -16,9 +16,11 @@
 
 int main(void)
 {
-    Tasks_Init();
-    Hardware_Init();
+    
+	Hardware_Init();
 	
+	
+	Tasks_Init();
 #if 0
 	//FAT_Test();        //FAT FSmodule TEST
 	//flash_test();      //test SPI flash module

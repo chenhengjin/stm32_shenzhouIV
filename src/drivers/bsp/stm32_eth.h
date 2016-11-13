@@ -1724,6 +1724,7 @@ void ETH_SetPTPTimeStampUpdate(uint32_t Sign, uint32_t SecondValue, uint32_t Sub
 void ETH_SetPTPTimeStampAddend(uint32_t Value);
 void ETH_SetPTPTargetTime(uint32_t HighValue, uint32_t LowValue);
 uint32_t ETH_GetPTPRegister(uint32_t ETH_PTPReg);
+void Ethernet_MDIO_Config(void); /* www.armjishu lihao */
 
 #ifdef __cplusplus
 }

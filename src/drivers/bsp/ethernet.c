@@ -12,10 +12,12 @@
 #include <stdio.h>
 
 #include "stm32f10x.h"
+#include "stm32f10x_rcc.h"
 #include "ethernet.h"
 #include "nvic.h"
-#include "stm32"
 #include "global.h"
+
+#include "stm32_eth.h"
 
 /* Private typedef -----------------------------------------------------------*/
 
@@ -38,7 +40,7 @@ static void Ethernet_RCC_Init(void)
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB | RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOD, ENABLE);
 
     /*anable AFIO*/
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, enable);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
 }
 
 /**
@@ -260,7 +262,7 @@ static void Ethernet_Interface_MCO_Set(void)
     /* Put the PHY in reset mode */
     ETH_WritePHYRegister(PHY_ADDRESS, PHY_BCR, PHY_Reset);
 
-    delay(2 * PHY_ResetDelay);
+    //delay(2 * PHY_ResetDelay);
 
     if(ETH_ReadPHYRegister(PHY_ADDRESS, 0x02) != 0x0181)
     {
@@ -274,6 +276,101 @@ static void Ethernet_Interface_MCO_Set(void)
 
 }
 
+/**
+  * @brief  Configures the Ethernet Interface
+  * @param  None
+  * @retval None
+  */
+static void Ethernet_Configuration(void)
+{
+    ETH_InitTypeDef ETH_InitStructure;
+
+    /* MII/RMII Media interface selection ------------------------------------------*/
+#ifdef MII_MODE /* Mode MII with STM3210C-EVAL  */
+    GPIO_ETH_MediaInterfaceConfig(GPIO_ETH_MediaInterface_MII);
+
+    /* Get HSE clock = 25MHz on PA8 pin (MCO) */
+    RCC_MCOConfig(RCC_MCO_HSE);
+
+#elif defined RMII_MODE  /* Mode RMII with STM3210C-EVAL */
+    GPIO_ETH_MediaInterfaceConfig(GPIO_ETH_MediaInterface_RMII);
+
+    /* Set PLL3 clock output to 50MHz (25MHz /5 *10 =50MHz) */
+    RCC_PLL3Config(RCC_PLL3Mul_10);
+    /* Enable PLL3 */
+    RCC_PLL3Cmd(ENABLE);
+    /* Wait till PLL3 is ready */
+    while (RCC_GetFlagStatus(RCC_FLAG_PLL3RDY) == RESET)
+    {}
+
+    /* Get PLL3 clock on PA8 pin (MCO) */
+    RCC_MCOConfig(RCC_MCO_PLL3CLK);
+#endif
+
+    /* Reset ETHERNET on AHB Bus */
+    ETH_DeInit();
+
+    /* Software reset */
+    ETH_SoftwareReset();
+
+    /* Wait for software reset */
+    while (ETH_GetSoftwareResetStatus() == SET);
+
+    /* ETHERNET Configuration ------------------------------------------------------*/
+    /* Call ETH_StructInit if you don't like to configure all ETH_InitStructure parameter */
+    ETH_StructInit(&ETH_InitStructure);
+
+    /* Fill ETH_InitStructure parametrs */
+    /*------------------------   MAC   -----------------------------------*/
+    ETH_InitStructure.ETH_AutoNegotiation = ETH_AutoNegotiation_Enable  ;
+    ETH_InitStructure.ETH_LoopbackMode = ETH_LoopbackMode_Disable;
+    ETH_InitStructure.ETH_RetryTransmission = ETH_RetryTransmission_Disable;
+    ETH_InitStructure.ETH_AutomaticPadCRCStrip = ETH_AutomaticPadCRCStrip_Disable;
+    ETH_InitStructure.ETH_ReceiveAll = ETH_ReceiveAll_Disable;
+    ETH_InitStructure.ETH_BroadcastFramesReception = ETH_BroadcastFramesReception_Enable;
+    ETH_InitStructure.ETH_PromiscuousMode = ETH_PromiscuousMode_Disable;
+    ETH_InitStructure.ETH_MulticastFramesFilter = ETH_MulticastFramesFilter_Perfect;
+    ETH_InitStructure.ETH_UnicastFramesFilter = ETH_UnicastFramesFilter_Perfect;
+#ifdef CHECKSUM_BY_HARDWARE
+    ETH_InitStructure.ETH_ChecksumOffload = ETH_ChecksumOffload_Enable;
+#endif
+
+    /*------------------------   DMA   -----------------------------------*/
+
+    /* When we use the Checksum offload feature, we need to enable the Store and Forward mode:
+    the store and forward guarantee that a whole frame is stored in the FIFO, so the MAC can insert/verify the checksum,
+    if the checksum is OK the DMA can handle the frame otherwise the frame is dropped */
+    ETH_InitStructure.ETH_DropTCPIPChecksumErrorFrame = ETH_DropTCPIPChecksumErrorFrame_Enable;
+    ETH_InitStructure.ETH_ReceiveStoreForward = ETH_ReceiveStoreForward_Enable;
+    ETH_InitStructure.ETH_TransmitStoreForward = ETH_TransmitStoreForward_Enable;
+
+    ETH_InitStructure.ETH_ForwardErrorFrames = ETH_ForwardErrorFrames_Disable;
+    ETH_InitStructure.ETH_ForwardUndersizedGoodFrames = ETH_ForwardUndersizedGoodFrames_Disable;
+    ETH_InitStructure.ETH_SecondFrameOperate = ETH_SecondFrameOperate_Enable;
+    ETH_InitStructure.ETH_AddressAlignedBeats = ETH_AddressAlignedBeats_Enable;
+    ETH_InitStructure.ETH_FixedBurst = ETH_FixedBurst_Enable;
+    ETH_InitStructure.ETH_RxDMABurstLength = ETH_RxDMABurstLength_32Beat;
+    ETH_InitStructure.ETH_TxDMABurstLength = ETH_TxDMABurstLength_32Beat;
+    ETH_InitStructure.ETH_DMAArbitration = ETH_DMAArbitration_RoundRobin_RxTx_2_1;
+
+    /* Configure Ethernet */
+    //ETH_Init(&ETH_InitStructure, PHY_ADDRESS);
+    if(ETH_Init(&ETH_InitStructure, PHY_ADDRESS))  //success
+    {
+        ;
+    }
+    else
+    {
+        while(!ETH_Init(&ETH_InitStructure, PHY_ADDRESS))
+        {
+            ;
+        }
+    }
+
+    /* Enable the Ethernet Rx Interrupt */
+    ETH_DMAITConfig(ETH_DMA_IT_NIS | ETH_DMA_IT_R, ENABLE);
+
+}
 
 /**
   * @brief  initialise the module of ethernet of the board
@@ -285,7 +382,9 @@ void Ethernet_Init(void)
     Ethernet_RCC_Init();
     Ethernet_Pin_Init();
     Ethernet_NVIC_Configuration();
-	Ethernet_Interface_MCO_Set();
+    Ethernet_Interface_MCO_Set();
+	Ethernet_Configuration();
 }
+
 
 

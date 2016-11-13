@@ -1,0 +1,10 @@
+.\objects\mib2.o: ..\src\protocol\lwip_1_4_1\core\snmp\mib2.c
+.\objects\mib2.o: ..\src\protocol\lwip_1_4_1\include\lwip/opt.h
+.\objects\mib2.o: ..\src\protocol\lwip_1_4_1\lwipopts.h
+.\objects\mib2.o: ..\src\protocol\lwip_1_4_1\include\lwip/debug.h
+.\objects\mib2.o: ..\src\protocol\lwip_1_4_1\include\lwip/arch.h
+.\objects\mib2.o: ..\src\protocol\lwip_1_4_1\arch/cc.h
+.\objects\mib2.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\mib2.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\mib2.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+.\objects\mib2.o: ..\src\protocol\lwip_1_4_1\include\lwip/opt.h

@@ -1,0 +1,9 @@
+.\objects\magic.o: ..\src\protocol\lwip-1.4.1\src\netif\ppp\magic.c
+.\objects\magic.o: ..\src\protocol\lwip-1.4.1\src\include\lwip/opt.h
+.\objects\magic.o: ..\src\protocol\lwip-1.4.1\lwipopts.h
+.\objects\magic.o: ..\src\protocol\lwip-1.4.1\src\include\lwip/debug.h
+.\objects\magic.o: ..\src\protocol\lwip-1.4.1\src\include\lwip/arch.h
+.\objects\magic.o: ..\src\protocol\lwip-1.4.1\src\include\arch/cc.h
+.\objects\magic.o: ..\src\protocol\lwip-1.4.1\src\include\arch/cpu.h
+.\objects\magic.o: ..\src\protocol\lwip-1.4.1\src\include\lwip/opt.h
+.\objects\magic.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

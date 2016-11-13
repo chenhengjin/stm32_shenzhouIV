@@ -14,10 +14,16 @@
 /*********BSP drivers***********/
 #include "w25x16.h"
 #include "ethernet.h"
+#include "stm32_eth.h"
+#include "netconf.h"
+#include "tcpip.h"
+#include "ethernet.h"
+
 
 /*******header of tasks********/
 #include "task_led_toggle.h"
 #include "task_modbus_process.h"
+//#include "task_dhcp.h"
 
 //FATFS includes
 #include "ff.h"
@@ -56,12 +62,16 @@ void Hardware_Init(void)
 #endif
 
     I2C_EE_Init();
-		
-	Ethernet_Init();
+	
 //#if USE_MAC
     //MAC_Init();
     //LwIP_Init();
+    
 //#endif
+	Ethernet_Init();
+	LwIP_Init();
+
+
 
 }
 
@@ -75,6 +85,10 @@ void Tasks_Init(void)
 {
     Task_Led_Toggle_Init();
     Task_Modbus_Process_Init();
+	
+#ifdef USE_DHCP
+	//Task_DHCP_Init(void);
+#endif
 }
 
 

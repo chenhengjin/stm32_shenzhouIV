@@ -1,0 +1,9 @@
+.\objects\pap.o: ..\src\protocol\lwip-1.4.1\src\netif\ppp\pap.c
+.\objects\pap.o: ..\src\protocol\lwip-1.4.1\src\include\lwip/opt.h
+.\objects\pap.o: ..\src\protocol\lwip-1.4.1\lwipopts.h
+.\objects\pap.o: ..\src\protocol\lwip-1.4.1\src\include\lwip/debug.h
+.\objects\pap.o: ..\src\protocol\lwip-1.4.1\src\include\lwip/arch.h
+.\objects\pap.o: ..\src\protocol\lwip-1.4.1\src\include\arch/cc.h
+.\objects\pap.o: ..\src\protocol\lwip-1.4.1\src\include\arch/cpu.h
+.\objects\pap.o: ..\src\protocol\lwip-1.4.1\src\include\lwip/opt.h
+.\objects\pap.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

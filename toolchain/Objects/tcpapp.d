@@ -1,0 +1,10 @@
+.\objects\tcpapp.o: ..\src\tcpapp.c
+.\objects\tcpapp.o: ..\src\protocol\lwip_1_4_1\include\lwip/opt.h
+.\objects\tcpapp.o: ..\src\protocol\lwip_1_4_1\lwipopts.h
+.\objects\tcpapp.o: ..\src\protocol\lwip_1_4_1\include\lwip/debug.h
+.\objects\tcpapp.o: ..\src\protocol\lwip_1_4_1\include\lwip/arch.h
+.\objects\tcpapp.o: ..\src\protocol\lwip_1_4_1\arch/cc.h
+.\objects\tcpapp.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\tcpapp.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\tcpapp.o: D:\WorkSoftware\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+.\objects\tcpapp.o: ..\src\protocol\lwip_1_4_1\include\lwip/opt.h
